@@ -2,13 +2,11 @@
 #include <iostream>
 #include <string>
 
-#include "./domains.cpp"
+#include "./domainTest.cpp"
 
 using namespace std;
 
 int main(){
-  string testParam = "(11)-999999999";
-  
-  Telefone testClass;
-  testClass.setTelefone(testParam);
-}
+  TU_Codigo Codigo;
+  Codigo.run("SUCCESS");
+} 
