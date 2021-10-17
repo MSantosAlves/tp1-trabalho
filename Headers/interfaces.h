@@ -1,18 +1,21 @@
 #ifndef INTERFACES_H_INCLUDED
 #define INTERFACES_H_INCLUDED
 
-#include "domains.h"
 #include "entities.h"
 #include <stdexcept>
 
 using namespace std;
 
 class IServicoAuthentication;
+class IServicoPeca;
+class IServicoSessao;
+class IServicoParticipante;
+class IServicoSala;
 
 class IApresentacaoAuthentication
 {
 public:
-  virtual Result execute() = 0;
+  virtual void execute(const Result &);
 
   virtual void setCntrServicoAuthentication(IServicoAuthentication *) = 0;
 
@@ -22,7 +25,7 @@ public:
 class IApresentacaoPeca
 {
 public:
-  virtual Result execute() = 0;
+  virtual void execute(const Result &) = 0;
 
   virtual void setCntrServicoPeca(IServicoPeca *) = 0;
 
@@ -32,7 +35,7 @@ public:
 class IApresentacaoSessao
 {
 public:
-  virtual Result execute() = 0;
+  virtual void execute(const Result &) = 0;
 
   virtual void setCntrServicoSessao(IServicoSessao *) = 0;
 
@@ -42,7 +45,7 @@ public:
 class IApresentacaoParticipante
 {
 public:
-  virtual Result execute() = 0;
+  virtual void execute(const Result &) = 0;
 
   virtual void setCntrServicoParticipante(IServicoParticipante *) = 0;
 
@@ -52,7 +55,7 @@ public:
 class IApresentacaoSala
 {
 public:
-  virtual Result execute() = 0;
+  virtual void execute(const Result &) = 0;
 
   virtual void setCntrServicoSala(IServicoSala *) = 0;
 

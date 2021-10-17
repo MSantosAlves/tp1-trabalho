@@ -32,15 +32,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Headers/controller.h" />
 		<Unit filename="Headers/domainTest.h" />
 		<Unit filename="Headers/domains.h" />
 		<Unit filename="Headers/entities.h" />
 		<Unit filename="Headers/entityTest.h" />
+		<Unit filename="Headers/interfaces.h" />
+		<Unit filename="Headers/stubs.h" />
+		<Unit filename="Sources/controller.cpp" />
 		<Unit filename="Sources/domainTest.cpp" />
 		<Unit filename="Sources/domains.cpp" />
 		<Unit filename="Sources/entities.cpp" />
 		<Unit filename="Sources/entityTest.cpp" />
 		<Unit filename="Sources/main.cpp" />
+		<Unit filename="Sources/stubs.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

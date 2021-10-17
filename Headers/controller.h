@@ -1,7 +1,6 @@
 #ifndef CONTROLLER_H_INCLUDED
 #define CONTROLLER_H_INCLUDED
 
-#include "domains.h"
 #include "entities.h"
 #include "interfaces.h"
 
@@ -23,7 +22,7 @@ private:
   Result authenticate();
 
 public:
-  Result execute();
+  void execute(const Result &);
 
   void setCntrServicoAuthentication(IServicoAuthentication *cntrServicoAuthentication)
   {
@@ -51,7 +50,7 @@ private:
   void remove();
 
 public:
-  Result execute(const Result &);
+  void execute(const Result &);
 
   void setCntrServicoPeca(IServicoPeca *cntrServicoPeca)
   {
@@ -75,7 +74,7 @@ private:
   void remove();
 
 public:
-  Result execute(const Result &);
+  void execute(const Result &);
 
   void setCntrServicoParticipante(IServicoParticipante *cntrServicoParticipante)
   {
@@ -103,7 +102,7 @@ private:
   void remove();
 
 public:
-  Result execute(const Result &);
+  void execute(const Result &);
 
   void setCntrServicoSala(IServicoSala *cntrServicoSala)
   {
@@ -131,7 +130,7 @@ private:
   void remove();
 
 public:
-  Result execute(const Result &);
+  void execute(const Result &);
 
   void setCntrServicoSessao(IServicoSessao *cntrServicoSessao)
   {

@@ -58,7 +58,7 @@ Result StubServicoPeca::show(const Codigo &identificador) throw(runtime_error)
   return result;
 }
 
-Result StubServicoPeca::create(const Peca &peca)
+Result StubServicoPeca::create(const Peca &peca) throw(runtime_error)
 {
   Result result;
 
@@ -70,7 +70,7 @@ Result StubServicoPeca::create(const Peca &peca)
   return result;
 }
 
-Result StubServicoPeca::update(const Peca &peca)
+Result StubServicoPeca::update(const Peca &peca) throw(runtime_error)
 {
   Result result;
 
@@ -82,7 +82,7 @@ Result StubServicoPeca::update(const Peca &peca)
   return result;
 }
 
-Result StubServicoPeca::remove(const Codigo &identificador)
+Result StubServicoPeca::remove(const Codigo &identificador) throw(runtime_error)
 {
   Result result;
 
@@ -136,7 +136,7 @@ Result StubServicoSessao::show(const Codigo &identificador) throw(runtime_error)
   return result;
 }
 
-Result StubServicoSessao::create(const Sessao &sessao)
+Result StubServicoSessao::create(const Sessao &sessao) throw(runtime_error)
 {
   Result result;
 
@@ -148,7 +148,7 @@ Result StubServicoSessao::create(const Sessao &sessao)
   return result;
 }
 
-Result StubServicoSessao::update(const Sessao &sessao)
+Result StubServicoSessao::update(const Sessao &sessao) throw(runtime_error)
 {
   Result result;
 
@@ -160,7 +160,7 @@ Result StubServicoSessao::update(const Sessao &sessao)
   return result;
 }
 
-Result StubServicoSessao::remove(const Codigo &identificador)
+Result StubServicoSessao::remove(const Codigo &identificador) throw(runtime_error)
 {
   Result result;
 
@@ -212,7 +212,7 @@ Result StubServicoSala::show(const Codigo &identificador) throw(runtime_error)
   return result;
 }
 
-Result StubServicoSala::create(const Sala &sala)
+Result StubServicoSala::create(const Sala &sala) throw(runtime_error)
 {
   Result result;
 
@@ -224,7 +224,7 @@ Result StubServicoSala::create(const Sala &sala)
   return result;
 }
 
-Result StubServicoSala::update(const Sala &sala)
+Result StubServicoSala::update(const Sala &sala) throw(runtime_error)
 {
   Result result;
 
@@ -236,7 +236,7 @@ Result StubServicoSala::update(const Sala &sala)
   return result;
 }
 
-Result StubServicoSala::remove(const Codigo &identificador)
+Result StubServicoSala::remove(const Codigo &identificador) throw(runtime_error)
 {
   Result result;
 
@@ -248,7 +248,7 @@ Result StubServicoSala::remove(const Codigo &identificador)
   return result;
 }
 
-Result StubServicoParticipante::create(const Participante &participante)
+Result StubServicoParticipante::create(const Participante &participante) throw(runtime_error)
 {
   Result result;
 
@@ -260,7 +260,7 @@ Result StubServicoParticipante::create(const Participante &participante)
   return result;
 }
 
-Result StubServicoParticipante::update(const Participante &participante)
+Result StubServicoParticipante::update(const Participante &participante) throw(runtime_error)
 {
   Result result;
 
@@ -272,7 +272,7 @@ Result StubServicoParticipante::update(const Participante &participante)
   return result;
 }
 
-Result StubServicoParticipante::remove(const Matricula &identificador)
+Result StubServicoParticipante::remove(const Matricula &identificador) throw(runtime_error)
 {
   Result result;
 

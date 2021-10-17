@@ -2,11 +2,9 @@
 #include <iostream>
 #include <string>
 
-#include "../Headers/domains.h"
-#include "../Headers/controller.h"
 #include "../Headers/interfaces.h"
+#include "../Headers/controller.h"
 #include "../Headers/stubs.h"
-#include "../Headers/entities.h"
 
 using namespace std;
 
@@ -37,6 +35,16 @@ int main()
 
   Result resultAuthentication;
   resultAuthentication.setValue(Result::FAILURE);
+
+  delete cntrApresentacaoParticipante;
+  delete cntrApresentacaoPeca;
+  delete cntrApresentacaoSessao;
+  delete cntrApresentacaoSala;
+
+  delete stubServicoParticipante;
+  delete stubServicoPeca;
+  delete stubServicoSala;
+  delete stubServicoSessao;
 
   return 0;
 }

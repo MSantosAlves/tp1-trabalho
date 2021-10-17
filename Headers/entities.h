@@ -1,3 +1,6 @@
+#ifndef ENTITIES_H_INCLUDED
+#define ENTITIES_H_INCLUDED
+
 /**
  * @file entities.h
  * @author Richard Junio e Matheus Santos
@@ -13,7 +16,7 @@ using namespace std;
 
 /**
 * @class Participante
-* 
+*
 * @brief Classe cuja função é armazenar dados referentes a um usuário.
 *
 * A classe possui os seguintes atributos que representam os dados de um Particpante:
@@ -42,7 +45,7 @@ private:
 public:
   /**
     * Método responsável pela atribuição do valor de matrícula ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setMatricula(const Matricula &matricula)
@@ -52,7 +55,7 @@ public:
 
   /**
     * Obtém o valor do atributo matrícula da classe de usuário
-    * 
+    *
     * @return objeto do tipo Matricula
     */
   Matricula getMatricula() const
@@ -62,7 +65,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de nome ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setNome(const Nome &nome)
@@ -72,7 +75,7 @@ public:
 
   /**
     * Obtém o valor do atributo nome da classe de usuário
-    * 
+    *
     * @return objeto do tipo Nome
     */
   Nome getNome() const
@@ -82,7 +85,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de sobrenome ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setSobrenome(const Nome &sobrenome)
@@ -92,7 +95,7 @@ public:
 
   /**
     * Obtém o valor do atributo sobrenome da classe de usuário
-    * 
+    *
     * @return objeto do tipo Nome
     */
   Nome getSobrenome() const
@@ -102,7 +105,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de email ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setEmail(const Email &email)
@@ -112,7 +115,7 @@ public:
 
   /**
     * Obtém o valor do atributo email da classe de usuário
-    * 
+    *
     * @return objeto do tipo Email
     */
   Email getEmail() const
@@ -122,7 +125,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de telefone ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setTelefone(const Telefone &telefone)
@@ -132,7 +135,7 @@ public:
 
   /**
     * Obtém o valor do atributo telefone da classe de usuário
-    * 
+    *
     * @return objeto do tipo Telefone
     */
   Telefone getTelefone() const
@@ -142,7 +145,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de senha ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setSenha(const Senha &senha)
@@ -152,7 +155,7 @@ public:
 
   /**
     * Obtém o valor do atributo senha da classe de usuário
-    * 
+    *
     * @return objeto do tipo Senha
     */
   Senha getSenha() const
@@ -162,7 +165,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de cargo ao objeto de participante.
-    * 
+    *
     * @param string
     */
   void setCargo(const Cargo &cargo)
@@ -172,7 +175,7 @@ public:
 
   /**
     * Obtém o valor do atributo cargo da classe de usuário
-    * 
+    *
     * @return objeto do tipo Cargo
     */
   Cargo getCargo() const
@@ -204,7 +207,7 @@ public:
 
 /**
 * @class Peca
-* 
+*
 * @brief Classe cuja função é armazenar dados referentes a uma peça.
 *
 * A classe possui os seguintes atributos que representam os dados de um peça:
@@ -227,7 +230,7 @@ private:
 public:
   /**
     * Método responsável pela atribuição do valor de identificador ao objeto de peça.
-    * 
+    *
     * @param string
     */
   void setIdentificador(const Codigo &identificador)
@@ -237,7 +240,7 @@ public:
 
   /**
     * Obtém o valor do atributo identificador da classe de peça
-    * 
+    *
     * @return objeto do tipo Codigo
     */
   Codigo getIdentificador() const
@@ -247,7 +250,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de nome ao objeto de peça.
-    * 
+    *
     * @param string
     */
   void setNome(const Nome &nome)
@@ -257,7 +260,7 @@ public:
 
   /**
     * Obtém o valor do atributo nome da classe de peça
-    * 
+    *
     * @return objeto do tipo Nome
     */
   Nome getNome() const
@@ -267,7 +270,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de tipo ao objeto de peça.
-    * 
+    *
     * @param string
     */
   void setTipo(const Tipo &tipo)
@@ -277,7 +280,7 @@ public:
 
   /**
     * Obtém o valor do atributo tipo da classe de peça
-    * 
+    *
     * @return objeto do tipo Tipo
     */
   Tipo getTipo() const
@@ -287,7 +290,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de classificaçao ao objeto de peça.
-    * 
+    *
     * @param string
     */
   void setClassificacao(const Classificacao &classificacao)
@@ -295,9 +298,9 @@ public:
     this->classificacao = classificacao;
   }
 
-  /** 
+  /**
     * Obtém o valor do atributo classificacao da classe de peça
-    * 
+    *
     * @return objeto do tipo Classificacao
     */
   Classificacao getClassificacao() const
@@ -308,7 +311,7 @@ public:
 
 /**
 * @class Sessao
-* 
+*
 * @brief Classe cuja função é armazenar dados referentes a uma sessao.
 *
 * A classe possui os seguintes atributos que representam os dados de um sessao:
@@ -328,7 +331,7 @@ private:
 public:
   /**
   * Método responsável pela atribuição do valor de identificador ao objeto de sessao.
-  * 
+  *
   * @param string
   */
   void setIdentificador(const Codigo &identificador)
@@ -338,7 +341,7 @@ public:
 
   /**
   * Obtém o valor do atributo identificador da classe de sessao
-  * 
+  *
   * @return objeto do tipo Codigo
   */
   Codigo getIdentificador() const
@@ -348,7 +351,7 @@ public:
 
   /**
   * Método responsável pela atribuição do valor de data ao objeto de sessao.
-  * 
+  *
   * @param string
   */
   void setData(const Data &data)
@@ -358,7 +361,7 @@ public:
 
   /**
   * Obtém o valor do atributo data da classe de sessao
-  * 
+  *
   * @return objeto do tipo Data
   */
   Data getData() const
@@ -368,7 +371,7 @@ public:
 
   /**
   * Método responsável pela atribuição do valor de horario ao objeto de sessao.
-  * 
+  *
   * @param string
   */
   void setHorario(const Horario &horario)
@@ -378,7 +381,7 @@ public:
 
   /**
   * Obtém o valor do atributo horario da classe de sessao
-  * 
+  *
   * @return objeto do tipo Horario
   */
   Horario getHorario() const
@@ -389,7 +392,7 @@ public:
 
 /**
 * @class Sala
-* 
+*
 * @brief Classe cuja função é armazenar dados referentes a uma sala que apresenta sessões de uma peça.
 *
 * A classe possui os seguintes atributos que representam os dados de uma Sala:
@@ -410,7 +413,7 @@ private:
 public:
   /**
     * Método responsável pela atribuição do valor de identificador ao objeto da classe Sala.
-    * 
+    *
     * @param string
     */
   void setIdentificador(const Codigo &identificador)
@@ -420,7 +423,7 @@ public:
 
   /**
     * Obtém o valor do atributo identificador da classe Sala.
-    * 
+    *
     * @return objeto do tipo Codigo
     */
   Codigo getIdentificador() const
@@ -430,7 +433,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de nome ao objeto da classe Sala.
-    * 
+    *
     * @param string
     */
   void setNome(const Nome &nome)
@@ -440,7 +443,7 @@ public:
 
   /**
     * Obtém o valor do atributo nome da classe Sala.
-    * 
+    *
     * @return objeto do tipo Nome
     */
   Nome getNome() const
@@ -450,7 +453,7 @@ public:
 
   /**
     * Método responsável pela atribuição do valor de capacidade ao objeto da classe Sala.
-    * 
+    *
     * @param string
     */
   void setCapacidade(const Capacidade &capacidade)
@@ -460,7 +463,7 @@ public:
 
   /**
     * Obtém o valor do atributo capacidade da classe Sala.
-    * 
+    *
     * @return objeto do tipo Capacidade
     */
   Capacidade getCapacidade() const
@@ -468,3 +471,5 @@ public:
     return capacidade;
   }
 };
+
+#endif // ENTITIES_H_INCLUDED

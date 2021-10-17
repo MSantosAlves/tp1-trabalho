@@ -1,7 +1,7 @@
 #include "../Headers/controller.h"
 #include <stdlib.h>
 
-Result CntrIApresentacaoPeca::execute(const Result &resultadoAuthentication)
+void CntrIApresentacaoPeca::execute(const Result &resultadoAuthentication)
 {
 
   int option;
@@ -300,7 +300,7 @@ void CntrIApresentacaoPeca::show()
   }
 }
 
-Result CntrIApresentacaoSessao::execute(const Result &resultadoAuthentication)
+void CntrIApresentacaoSessao::execute(const Result &resultadoAuthentication)
 {
 
   int option;
@@ -587,7 +587,7 @@ void CntrIApresentacaoSessao::show()
   }
 }
 
-Result CntrIApresentacaoSala::execute(const Result &resultadoAuthentication)
+void CntrIApresentacaoSala::execute(const Result &resultadoAuthentication)
 {
 
   int option;
@@ -873,7 +873,7 @@ void CntrIApresentacaoSala::show()
   }
 }
 
-Result CntrIApresentacaoParticipante::execute(const Result &resultadoAuthentication)
+void CntrIApresentacaoParticipante::execute(const Result &resultadoAuthentication)
 {
 
   int option;

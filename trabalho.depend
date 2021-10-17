@@ -140,3 +140,74 @@
 	"../Headers/domainTest.h"
 	"../Headers/entityTest.h"
 
+1634505385 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\domains.cpp
+	"../headers/domains.h"
+
+1634505385 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\domains.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	<array>
+	<sstream>
+	<cctype>
+
+1634505385 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\domaintest.cpp
+	"../headers/domainTest.h"
+
+1634505385 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\domaintest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"domains.h"
+
+1634505385 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\entities.cpp
+	"../headers/entities.h"
+
+1634508128 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\entities.h
+	"domains.h"
+	<string>
+
+1634505385 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\entitytest.cpp
+	"../headers/entityTest.h"
+
+1634505385 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\entitytest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"entities.h"
+
+1634509677 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\controller.cpp
+	"../Headers/controller.h"
+	<stdlib.h>
+
+1634509691 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\controller.h
+	"entities.h"
+	"interfaces.h"
+	<stdexcept>
+	<iostream>
+	<cstdlib>
+
+1634509867 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\interfaces.h
+	"entities.h"
+	<stdexcept>
+
+1634509133 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\main.cpp
+	<stdexcept>
+	<iostream>
+	<string>
+	"../Headers/interfaces.h"
+	"../Headers/controller.h"
+	"../Headers/stubs.h"
+
+1634508524 e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\headers\stubs.h
+	<string>
+	"domains.h"
+	"interfaces.h"
+	"entities.h"
+
+1634508800 source:e:\richardjlv\documentos\unb\7º semestre\tp1\tp1-trabalho-tp2\tp1-trabalho-tp2\sources\stubs.cpp
+	"../Headers/stubs.h"
+
