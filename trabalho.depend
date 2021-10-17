@@ -1,0 +1,142 @@
+# depslib dependency file v1.0
+1630005568 source:e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\sources\domains.cpp
+	"../headers/domains.h"
+
+1630005846 e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\headers\domains.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	<array>
+	<sstream>
+	<cctype>
+
+1630005300 source:e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\sources\domaintest.cpp
+	"../headers/domainTest.h"
+
+1630005301 e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\headers\domaintest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"domains.h"
+
+1630006185 source:e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\sources\main.cpp
+	<stdexcept>
+	<iostream>
+	<string>
+	"../Headers/domainTest.h"
+	"../Headers/entityTest.h"
+
+1629937823 e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\sources\domaintest.cpp
+	"../headers/domainTest.h"
+
+1629937823 source:e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\sources\entities.cpp
+	"../headers/entities.h"
+
+1630006088 e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\headers\entities.h
+	"domains.h"
+	<string>
+
+1630005844 source:e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\sources\entitytest.cpp
+	"../headers/entityTest.h"
+
+1630006002 e:\richardjlv\documentos\unb\7º semestre\tp1\trabalho\headers\entitytest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"entities.h"
+
+1630005568 source:c:\users\matheus alves\downloads\trabalho\sources\domains.cpp
+	"../headers/domains.h"
+
+1630015217 c:\users\matheus alves\downloads\trabalho\headers\domains.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	<array>
+	<sstream>
+	<cctype>
+
+1630005300 source:c:\users\matheus alves\downloads\trabalho\sources\domaintest.cpp
+	"../headers/domainTest.h"
+
+1630014875 c:\users\matheus alves\downloads\trabalho\headers\domaintest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"domains.h"
+
+1629937823 source:c:\users\matheus alves\downloads\trabalho\sources\entities.cpp
+	"../headers/entities.h"
+
+1630016337 c:\users\matheus alves\downloads\trabalho\headers\entities.h
+	"domains.h"
+	<string>
+
+1630014967 source:c:\users\matheus alves\downloads\trabalho\sources\entitytest.cpp
+	"../headers/entityTest.h"
+
+1630014868 c:\users\matheus alves\downloads\trabalho\headers\entitytest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"entities.h"
+
+1630006185 source:c:\users\matheus alves\downloads\trabalho\sources\main.cpp
+	<stdexcept>
+	<iostream>
+	<string>
+	"../Headers/domainTest.h"
+	"../Headers/entityTest.h"
+
+1630005568 source:c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\sources\domains.cpp
+	"../headers/domains.h"
+
+1630015217 c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\headers\domains.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	<array>
+	<sstream>
+	<cctype>
+
+1630005300 source:c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\sources\domaintest.cpp
+	"../headers/domainTest.h"
+
+1630014875 c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\headers\domaintest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"domains.h"
+
+1629937823 source:c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\sources\entities.cpp
+	"../headers/entities.h"
+
+1630016337 c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\headers\entities.h
+	"domains.h"
+	<string>
+
+1630014967 source:c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\sources\entitytest.cpp
+	"../headers/entityTest.h"
+
+1630014868 c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\headers\entitytest.h
+	<iostream>
+	<string>
+	<stdexcept>
+	<algorithm>
+	"entities.h"
+
+1630006185 source:c:\users\matheus alves\desktop\unb\tp1\tp1-trabalho\trabalho\sources\main.cpp
+	<stdexcept>
+	<iostream>
+	<string>
+	"../Headers/domainTest.h"
+	"../Headers/entityTest.h"
+
