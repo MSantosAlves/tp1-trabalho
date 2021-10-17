@@ -2,63 +2,41 @@
 #include <iostream>
 #include <string>
 
-#include "../Headers/domainTest.h"
-#include "../Headers/entityTest.h"
+#include "../Headers/domains.h"
+#include "../Headers/controller.h"
+#include "../Headers/interfaces.h"
+#include "../Headers/stubs.h"
+#include "../Headers/entities.h"
 
 using namespace std;
 
-int main(){
-  TU_Codigo Codigo;
-  TU_Capacidade Capacidade;
-  TU_Cargo Cargo;
-  TU_Classificacao Classificacao;
-  TU_Email Email;
-  TU_Horario Horario;
-  TU_Matricula Matricula;
-  TU_Nome Nome;
-  TU_Senha Senha;
-  TU_Telefone Telefone;
-  TU_Tipo Tipo;
+int main()
+{
+  IApresentacaoParticipante *cntrApresentacaoParticipante;
+  IApresentacaoPeca *cntrApresentacaoPeca;
+  IApresentacaoSessao *cntrApresentacaoSessao;
+  IApresentacaoSala *cntrApresentacaoSala;
+  IServicoParticipante *stubServicoParticipante;
+  IServicoPeca *stubServicoPeca;
+  IServicoSala *stubServicoSala;
+  IServicoSessao *stubServicoSessao;
 
-  // SUCCESS CASES -> IT SHOULD RETURN SUCCESS IN ALL SPECS
-  cout << "DOMAIN TESTS (SUCCESS CASES) -> IT SHOULD RETURN SUCCESS IN ALL SPECS" << "\n\n";
-  Codigo.run("SUCCESS");
-  Capacidade.run("SUCCESS");
-  Cargo.run("SUCCESS");
-  Classificacao.run("SUCCESS");
-  Email.run("SUCCESS");
-  Horario.run("SUCCESS");
-  Matricula.run("SUCCESS");
-  Nome.run("SUCCESS");
-  Senha.run("SUCCESS");
-  Telefone.run("SUCCESS");
-  Tipo.run("SUCCESS");
+  // Controllers da camada de apresentacao
+  cntrApresentacaoParticipante = new CntrIApresentacaoParticipante();
+  cntrApresentacaoPeca = new CntrIApresentacaoPeca();
+  cntrApresentacaoSessao = new CntrIApresentacaoSessao();
+  cntrApresentacaoSala = new CntrIApresentacaoSala();
 
-  // FAILURE CASES -> IT SHOULD RETURN FAILURE IN ALL SPECS
-  cout << "\n" <<  "DOMAIN TESTS (FAILURE CASES) -> IT SHOULD RETURN FAILURE IN ALL SPECS" << "\n\n";
-  Codigo.run("FAILURE");
-  Capacidade.run("FAILURE");
-  Cargo.run("FAILURE");
-  Classificacao.run("FAILURE");
-  Email.run("FAILURE");
-  Horario.run("FAILURE");
-  Matricula.run("FAILURE");
-  Nome.run("FAILURE");
-  Senha.run("FAILURE");
-  Telefone.run("FAILURE");
-  Tipo.run("FAILURE");
+  // Stubs da camada de servico
+  stubServicoParticipante = new StubServicoParticipante();
+  stubServicoPeca = new StubServicoPeca();
+  stubServicoSala = new StubServicoSala();
+  stubServicoSessao = new StubServicoSessao();
 
-  cout <<  "\n" << "Entity TESTS (SUCCESS CASES) -> IT SHOULD RETURN SUCCESS IN ALL SPECS" << "\n\n";
+  cntrApresentacaoParticipante->setCntrServicoParticipante(stubServicoParticipante);
 
-  TU_Participante Participante;
-  TU_Sessao Sessao;
-  TU_Peca Peca;
-  TU_Sala Sala;
-
-  Participante.run();
-  Sessao.run();
-  Peca.run();
-  Sala.run();
+  Result resultAuthentication;
+  resultAuthentication.setValue(Result::FAILURE);
 
   return 0;
 }
