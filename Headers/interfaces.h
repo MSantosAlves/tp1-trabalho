@@ -15,7 +15,7 @@ class IServicoSala;
 class IApresentacaoAuthentication
 {
 public:
-  virtual void execute(const Result &);
+  virtual Result execute(const Result &);
 
   virtual void setCntrServicoAuthentication(IServicoAuthentication *) = 0;
 
@@ -65,7 +65,7 @@ public:
 class IServicoAuthentication
 {
 public:
-  virtual Result authenticate(const Email &, const Senha &) throw(runtime_error) = 0;
+  virtual Result authenticate(const Email &, const Senha &) throw(runtime_error);
 
   virtual ~IServicoAuthentication() {}
 };

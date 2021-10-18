@@ -1,6 +1,98 @@
 #include "../Headers/controller.h"
 #include <stdlib.h>
 
+Result CntrIApresentacaoAuthentication::execute(const Result &result)
+{
+
+  int opcao;
+  Result resultAuthentication;
+  resultAuthentication.setValue(Result::FAILURE);
+
+  while (true)
+  {
+
+    system("CLS");
+
+    cout << endl
+         << "Servico de autenticacao: " << endl
+         << endl;
+
+    cout << "Autenticar   - " << AUTHENTICATE << endl;
+    cout << "Retornar     - " << RETURN << endl
+         << endl;
+    cout << "Selecione uma opcao : ";
+
+    cin >> opcao;
+
+    switch (opcao)
+    {
+    case AUTHENTICATE:
+      resultAuthentication = authenticate();
+      break;
+    }
+
+    if (opcao == RETURN)
+      return resultAuthentication;
+  }
+
+  return resultAuthentication;
+}
+
+Result CntrIApresentacaoAuthentication::authenticate()
+{
+
+  Result result;
+  Email email;
+  Senha senha;
+  string input;
+
+  while (true)
+  {
+    cout << endl
+         << "Autenticar usuario: " << endl
+         << endl;
+    try
+    {
+      cout << "Digite o Email: ";
+      cin >> input;
+      email.setEmail(input);
+      cout << "Digite a senha: ";
+      cin >> input;
+      senha.setSenha(input);
+      break;
+    }
+    catch (const invalid_argument &exp)
+    {
+      cout << endl
+           << "Entrada invalida." << endl;
+    }
+  }
+
+  try
+  {
+    result.setValue(Result::SUCCESS);
+
+    cntrServicoAuthentication->authenticate(email, senha);
+
+    if (result.getValue() == Result::SUCCESS)
+    {
+      cout << "Operacao executada com sucesso." << endl;
+      system("PAUSE");
+      return result;
+    }
+    else
+    {
+      cout << "Ocorreu um erro ao executar a operacao." << endl;
+      system("PAUSE");
+      return result;
+    }
+  }
+  catch (runtime_error &exp)
+  {
+    cout << "Erro no servidor." << endl;
+  }
+}
+
 void CntrIApresentacaoPeca::execute(const Result &resultadoAuthentication)
 {
 
@@ -11,10 +103,10 @@ void CntrIApresentacaoPeca::execute(const Result &resultadoAuthentication)
     system("CLS");
 
     cout << endl
-         << "Gerenciamento de peças." << endl
+         << "Servico de pecas: " << endl
          << endl;
 
-    cout << "Incluir   - " << CREATE << endl;
+    cout << "Cadastrar - " << CREATE << endl;
     if (resultadoAuthentication.getValue() == Result::SUCCESS)
     {
       cout << "Remover   - " << REMOVE << endl;
@@ -62,7 +154,9 @@ void CntrIApresentacaoPeca::index()
   Result result;
   while (true)
   {
-    cout << "\nBuscando as pecas cadastradas no sistema...\n";
+    cout << endl
+         << "Listagem de pecas: " << endl
+         << endl;
   }
   try
   {
@@ -71,7 +165,7 @@ void CntrIApresentacaoPeca::index()
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -89,7 +183,7 @@ void CntrIApresentacaoPeca::create()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Cadastro de pecas: " << endl
          << endl;
     try
     {
@@ -111,7 +205,7 @@ void CntrIApresentacaoPeca::create()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -126,12 +220,12 @@ void CntrIApresentacaoPeca::create()
 
     if (resultado.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
@@ -154,7 +248,7 @@ void CntrIApresentacaoPeca::update()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Edicao de peca: " << endl
          << endl;
     try
     {
@@ -176,7 +270,7 @@ void CntrIApresentacaoPeca::update()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -191,18 +285,18 @@ void CntrIApresentacaoPeca::update()
 
     if (resultado.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro na execucao" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -215,6 +309,9 @@ void CntrIApresentacaoPeca::remove()
 
   while (true)
   {
+    cout << endl
+         << "Remocao de peca: " << endl
+         << endl;
     try
     {
       cout << "Digite o código da peca: ";
@@ -236,18 +333,18 @@ void CntrIApresentacaoPeca::remove()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -261,7 +358,7 @@ void CntrIApresentacaoPeca::show()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Informacoes da peca: " << endl
          << endl;
     try
     {
@@ -273,7 +370,7 @@ void CntrIApresentacaoPeca::show()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -285,18 +382,18 @@ void CntrIApresentacaoPeca::show()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -310,18 +407,18 @@ void CntrIApresentacaoSessao::execute(const Result &resultadoAuthentication)
     system("CLS");
 
     cout << endl
-         << "Gerenciamento de sessao." << endl
+         << "Servico de sessao: " << endl
          << endl;
 
-    cout << "Incluir   - " << CREATE << endl;
+    cout << "Cadastrar   - " << CREATE << endl;
     if (resultadoAuthentication.getValue() == Result::SUCCESS)
     {
-      cout << "Remover   - " << REMOVE << endl;
-      cout << "Editar    - " << UPDATE << endl;
+      cout << "Remover    - " << REMOVE << endl;
+      cout << "Editar     - " << UPDATE << endl;
     }
-    cout << "Retornar  - " << RETURN << endl
+    cout << "Retornar   - " << RETURN << endl
          << endl;
-    cout << "Selecione uma opcao : ";
+    cout << "Selecione uma opcao: ";
 
     cin >> option;
     if (resultadoAuthentication.getValue() == Result::SUCCESS)
@@ -361,7 +458,9 @@ void CntrIApresentacaoSessao::index()
   Result result;
   while (true)
   {
-    cout << "\nBuscando as sessoes cadastradas no sistema...\n";
+    cout << endl
+         << "Listagem de sessoes: " << endl
+         << endl;
   }
   try
   {
@@ -370,7 +469,7 @@ void CntrIApresentacaoSessao::index()
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -387,7 +486,7 @@ void CntrIApresentacaoSessao::create()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Cadastro de sessao: " << endl
          << endl;
     try
     {
@@ -405,7 +504,7 @@ void CntrIApresentacaoSessao::create()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -419,12 +518,12 @@ void CntrIApresentacaoSessao::create()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
@@ -446,7 +545,7 @@ void CntrIApresentacaoSessao::update()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Edicao de sessao: " << endl
          << endl;
     try
     {
@@ -464,7 +563,7 @@ void CntrIApresentacaoSessao::update()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -478,18 +577,18 @@ void CntrIApresentacaoSessao::update()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro na execucao" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -502,6 +601,9 @@ void CntrIApresentacaoSessao::remove()
 
   while (true)
   {
+    cout << endl
+         << "Remocao de sessao: " << endl
+         << endl;
     try
     {
       cout << "Digite o código da sessao: ";
@@ -511,7 +613,8 @@ void CntrIApresentacaoSessao::remove()
     }
     catch (const invalid_argument &exp)
     {
-      cout << "\nCódigo inválido.\n";
+      cout << endl
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -523,18 +626,18 @@ void CntrIApresentacaoSessao::remove()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -548,7 +651,7 @@ void CntrIApresentacaoSessao::show()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Informacoes da sessao: " << endl
          << endl;
     try
     {
@@ -560,7 +663,7 @@ void CntrIApresentacaoSessao::show()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -572,18 +675,18 @@ void CntrIApresentacaoSessao::show()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -597,10 +700,10 @@ void CntrIApresentacaoSala::execute(const Result &resultadoAuthentication)
     system("CLS");
 
     cout << endl
-         << "Gerenciamento de sala." << endl
+         << "Servico de salas: " << endl
          << endl;
 
-    cout << "Incluir   - " << CREATE << endl;
+    cout << "Cadastrar - " << CREATE << endl;
     if (resultadoAuthentication.getValue() == Result::SUCCESS)
     {
       cout << "Remover   - " << REMOVE << endl;
@@ -648,7 +751,9 @@ void CntrIApresentacaoSala::index()
   Result result;
   while (true)
   {
-    cout << "\nBuscando as salas cadastradas no sistema...\n";
+    cout << endl
+         << "Listagem de salas: " << endl
+         << endl;
   }
   try
   {
@@ -657,7 +762,7 @@ void CntrIApresentacaoSala::index()
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -673,7 +778,7 @@ void CntrIApresentacaoSala::create()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Cadastro de sala: " << endl
          << endl;
     try
     {
@@ -691,7 +796,7 @@ void CntrIApresentacaoSala::create()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -705,12 +810,12 @@ void CntrIApresentacaoSala::create()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
@@ -732,7 +837,7 @@ void CntrIApresentacaoSala::update()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Edicao de sala: " << endl
          << endl;
     try
     {
@@ -750,7 +855,7 @@ void CntrIApresentacaoSala::update()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -764,18 +869,18 @@ void CntrIApresentacaoSala::update()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro na execucao" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -788,6 +893,9 @@ void CntrIApresentacaoSala::remove()
 
   while (true)
   {
+    cout << endl
+         << "Remocao de sala: " << endl
+         << endl;
     try
     {
       cout << "Digite o código da sala: ";
@@ -797,7 +905,8 @@ void CntrIApresentacaoSala::remove()
     }
     catch (const invalid_argument &exp)
     {
-      cout << "\nCódigo inválido.\n";
+      cout << endl
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -809,18 +918,18 @@ void CntrIApresentacaoSala::remove()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -834,7 +943,7 @@ void CntrIApresentacaoSala::show()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Informacaoes da sala: " << endl
          << endl;
     try
     {
@@ -846,7 +955,7 @@ void CntrIApresentacaoSala::show()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -858,18 +967,18 @@ void CntrIApresentacaoSala::show()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }
 
@@ -883,10 +992,10 @@ void CntrIApresentacaoParticipante::execute(const Result &resultadoAuthenticatio
     system("CLS");
 
     cout << endl
-         << "Gerenciamento de participante." << endl
+         << "Servico de participante: " << endl
          << endl;
 
-    cout << "Incluir   - " << CREATE << endl;
+    cout << "Cadastrar - " << CREATE << endl;
     if (resultadoAuthentication.getValue() == Result::SUCCESS)
     {
       cout << "Remover   - " << REMOVE << endl;
@@ -945,7 +1054,7 @@ void CntrIApresentacaoParticipante::create()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Cadastro de participante: " << endl
          << endl;
     try
     {
@@ -975,7 +1084,7 @@ void CntrIApresentacaoParticipante::create()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -993,12 +1102,12 @@ void CntrIApresentacaoParticipante::create()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
@@ -1023,7 +1132,7 @@ void CntrIApresentacaoParticipante::update()
   while (true)
   {
     cout << endl
-         << "Digite os dados abaixo." << endl
+         << "Edicao de participante: " << endl
          << endl;
     try
     {
@@ -1053,7 +1162,7 @@ void CntrIApresentacaoParticipante::update()
     catch (const invalid_argument &exp)
     {
       cout << endl
-           << "Dado em formato incorreto." << endl;
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -1071,12 +1180,12 @@ void CntrIApresentacaoParticipante::update()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
@@ -1094,6 +1203,9 @@ void CntrIApresentacaoParticipante::remove()
 
   while (true)
   {
+    cout << endl
+         << "Remocao de participante: " << endl
+         << endl;
     try
     {
       cout << "Digite a matricula do participante: ";
@@ -1103,7 +1215,8 @@ void CntrIApresentacaoParticipante::remove()
     }
     catch (const invalid_argument &exp)
     {
-      cout << "\nMatrícula inválida.\n";
+      cout << endl
+           << "Entrada invalida." << endl;
     }
   }
 
@@ -1115,17 +1228,17 @@ void CntrIApresentacaoParticipante::remove()
 
     if (result.getValue() == Result::SUCCESS)
     {
-      cout << "Sucesso na execucao da operacao" << endl;
+      cout << "Operacao executada com sucesso." << endl;
       system("PAUSE");
     }
     else
     {
-      cout << "Falha na execucao da operacao" << endl;
+      cout << "Falha na execucao da operacao." << endl;
       system("PAUSE");
     }
   }
   catch (runtime_error &exp)
   {
-    cout << "Erro de sistema" << endl;
+    cout << "Erro no servidor." << endl;
   }
 }

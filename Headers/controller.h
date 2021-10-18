@@ -22,7 +22,7 @@ private:
   Result authenticate();
 
 public:
-  void execute(const Result &);
+  Result execute(const Result &);
 
   void setCntrServicoAuthentication(IServicoAuthentication *cntrServicoAuthentication)
   {
